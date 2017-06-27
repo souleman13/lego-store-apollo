@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+main{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.inputStyle {
+  width: 100vw;
+  height: 50px;
+}
+
+.cardStyle {
+  height: 225px;
+  width: 200px;
+}
+
+.padding10 {
+  padding: 10px;
+}
