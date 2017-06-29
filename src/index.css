@@ -12,13 +12,32 @@ main{
 }
 
 .inputStyle {
-  width: 100vw;
-  height: 50px;
+  padding: 16px;
+  margin-bottom: 32px;
 }
 
 .cardStyle {
   height: 225px;
   width: 200px;
+}
+
+.detailsTitle {
+  padding-left: 10px;
+}
+
+.detailsPicStyle {
+  width: 95%;
+  padding: 20px;
+}
+
+.detailsStyle {
+  width: 95%;
+}
+
+.add2Cart {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
 }
 
 .padding10 {
