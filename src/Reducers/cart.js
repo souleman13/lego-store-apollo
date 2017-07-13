@@ -5,7 +5,7 @@ import {
     ADD_TO_CART,
     REMOVE_FROM_CART,
     CLEAR_CART,
-} from '../actions';
+} from '../Actions';
 
 
 export default (state = [], action = {}) => {

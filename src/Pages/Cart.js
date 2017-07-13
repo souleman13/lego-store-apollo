@@ -13,7 +13,11 @@ export default class extends Component {
          <div>
              <h1>Cart</h1>
              <p> display a graph with cart object information </p>
+             <div>
+
+             </div>
          </div>
      );
  }
+
 }

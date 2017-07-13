@@ -36,7 +36,10 @@ main{
 
 .add2Cart {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 50px;
   width: 150px;
 }
 

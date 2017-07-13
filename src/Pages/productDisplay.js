@@ -2,7 +2,7 @@
  * Created by Douglas on 7/10/2017.
  */
 import React, {Component} from 'react'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Actions from '../Actions/';
 
 import {Card, CardMedia, CardTitle} from 'material-ui/Card';
@@ -13,6 +13,7 @@ import TextField from 'material-ui/TextField'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
+
 class productDisplay extends Component {
 
     state = {
@@ -22,7 +23,7 @@ class productDisplay extends Component {
     };
 
 
-    render(){
+    render() {
 
 
         const value = this.state.filter;
@@ -30,10 +31,11 @@ class productDisplay extends Component {
         const {showDetails} = this.state;
         const {selectedFigure} = this.state;
 
-        const Quantity = 3;
 
-        return(
+        return (
             <div>
+                {/*search bar*/}
+
                 <Paper zDepth={1} className="inputStyle">
                     <TextField type="search"
                                value={this.state.filter}
@@ -41,6 +43,8 @@ class productDisplay extends Component {
                                fullWidth={true}
                                hintText="Search by a name or a price..."/>
                 </Paper>
+
+                {/*products filtered by search*/}
 
                 <main>
                     { Figures
@@ -66,6 +70,9 @@ class productDisplay extends Component {
                                 </div>
                             )
                         }) }
+
+                    {/*Drawer with selected figure*/}
+
                     <Drawer
                         width={600}
                         docked={false}
@@ -86,11 +93,15 @@ class productDisplay extends Component {
                                 </section>
                                 <section className="add2Cart">
                                     <div>
-                                        <h3>{selectedFigure.price}</h3>
+                                        <h3>Price: {selectedFigure.price}</h3>
+                                        <h3>Quantity: <input id="quantity" type="number" value={1} placeholder="1"/></h3>
+                                        <h3>Add</h3>
+                                        <FloatingActionButton
+                                            onClick={e => this.props.onAddToCart(selectedFigure, document.getElementById("quantity").value)}>
+                                            <ContentAdd />
+                                        </FloatingActionButton>
+                                        <h3></h3>
                                     </div>
-                                    <FloatingActionButton onClick={e => this.props.onAddToCart(selectedFigure, Quantity)} >
-                                        <ContentAdd />
-                                    </FloatingActionButton>
                                 </section>
                             </section>
                         ) : null}
@@ -111,3 +122,4 @@ export default connect(state => ({
         },
     }),
 )(productDisplay);
+
