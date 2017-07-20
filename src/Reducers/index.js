@@ -3,12 +3,14 @@
  */
 
 import { combineReducers } from 'redux';
+import storage from 'redux-storage';
 
 import cart from './cart';
 import items from './items';
 
 
-export default combineReducers({
+
+export default storage.reducer(combineReducers({
     cart,
     items
-});
+}));

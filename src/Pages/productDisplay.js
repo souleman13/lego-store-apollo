@@ -14,6 +14,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 
 
+
 class productDisplay extends Component {
 
     state = {
@@ -30,7 +31,6 @@ class productDisplay extends Component {
         const expression = new RegExp(value, 'i');
         const {showDetails} = this.state;
         const {selectedFigure} = this.state;
-
 
         return (
             <div>
@@ -52,7 +52,8 @@ class productDisplay extends Component {
                         .filter(figure => figure.name.match(expression) || figure.price.toString().startsWith(value))
                         .map(figure => {
                             return (
-                                <div className="padding10" onClick={handleClick => this.setState({
+                                <div key={figure.name} className="padding10"
+                                     onClick={handleClick => this.setState({
                                     showDetails: !showDetails,
                                     selectedFigure: figure,
                                 }) }>
@@ -94,13 +95,15 @@ class productDisplay extends Component {
                                 <section className="add2Cart">
                                     <div>
                                         <h3>Price: {selectedFigure.price}</h3>
-                                        <h3>Quantity: <input id="quantity" type="number" value={1} placeholder="1"/></h3>
+                                        <h3>Quantity: <input id="quantity" type="number" defaultValue={1} placeholder="1"/></h3>
                                         <h3>Add</h3>
                                         <FloatingActionButton
                                             onClick={e => this.props.onAddToCart(selectedFigure, document.getElementById("quantity").value)}>
                                             <ContentAdd />
                                         </FloatingActionButton>
-                                        <h3></h3>
+                                        <h3>
+                                            {this.props.cart.length}
+                                        </h3>
                                     </div>
                                 </section>
                             </section>
@@ -122,4 +125,3 @@ export default connect(state => ({
         },
     }),
 )(productDisplay);
-

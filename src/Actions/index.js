@@ -4,6 +4,7 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const CLEAR_CART = 'CLEAR_CART';
+export const QUANTITY_CHANGE = 'QUANTITY_CHANGE';
 
 
 export default {
@@ -16,11 +17,10 @@ export default {
         };
     },
 
-    removeFromCart(item = {}, quantity = 0) {
+    removeFromCart(item = {}) {
         return {
             type: REMOVE_FROM_CART,
             item,
-            quantity,
         };
     },
 
@@ -30,4 +30,11 @@ export default {
         };
     },
 
+    quantityChange(item = {}, quantity = 0) {
+        return {
+            type: QUANTITY_CHANGE,
+            item,
+            quantity,
+        }
+    }
 };

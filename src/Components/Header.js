@@ -29,8 +29,8 @@ export default class extends Component {
                 onRequestChange={(open) => this.setState({open})}
             >
                 {/*drawer content*/}
-                <MenuItem href='/page'>Products</MenuItem>
-                <MenuItem href='/page'>Cart</MenuItem>
+                <MenuItem href='/'>Products</MenuItem>
+                <MenuItem href='/cart'>Cart</MenuItem>
             </Drawer>
 
         </div>
